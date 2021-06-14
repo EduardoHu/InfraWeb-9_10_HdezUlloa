@@ -27,6 +27,8 @@ export class DataApiService {
   }
   //Mesas*************************************************
   addMesas(mesa: MesasInterface): void {
+    mesa.reservada="No";
+    mesa.reservadaPor="";
     this.mesasCollection.add(mesa);
   }
   getAllMesas() {
@@ -64,6 +66,15 @@ export class DataApiService {
   updateMesas(mesa: MesasInterface): void {
     let idMesa = mesa.Id;
     this.mesaDoc = this.afs.doc<MesasInterface>(`mesas/${idMesa}`);
+    mesa.reservada="No";
+    mesa.reservadaPor="";
+    this.mesaDoc.update(mesa);
+  }
+  updateMesas2(mesa: MesasInterface,Id:string): void {
+    let idMesa = Id;
+    this.mesaDoc = this.afs.doc<MesasInterface>(`mesas/${idMesa}`);
+    mesa.reservada="Si";
+    mesa.reservadaPor="Prueba";
     this.mesaDoc.update(mesa);
   }
   deleteMesa(idMesa: string): void {

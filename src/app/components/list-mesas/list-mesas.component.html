@@ -22,10 +22,11 @@
       <thead>
         <tr>
           <th scope="col">Codigo</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Domicilio</th>
+          <th scope="col">Calidad</th>
+          <th scope="col">Personas maximo</th>
           <th scope="col">Descripcion</th>
-          <th scope="col">Precio</th>
+          <th scope="col">Reservada</th>
+          <th scope="col">Reservada Por</th>
           <th scope="col">&nbsp;</th>
         </tr>
       </thead>
@@ -33,10 +34,11 @@
         <tr *ngFor="let mesa of mesas | filter: filterPost; index as i">
           <!-- <th scope="row">{{ i + 1 }}</th> -->
           <th scope="row">{{ mesa.codigo }}</th>
-          <td>{{ mesa.nombre }}</td>
-          <td>{{ mesa.domicilio }}, {{ mesa.lugar }}</td>
+          <td>{{ mesa.calidad }}</td>
+          <td>{{ mesa.personasMax }}</td>
           <td>{{ mesa.descripcion.substring(0, 30) }}...</td>
-          <td>${{ mesa.precio }}</td>
+          <td>{{ mesa.reservada }}</td>
+          <td>{{ mesa.reservadaPor }}</td>
           <td *ngIf="mesa.correo_registro == userCorreo; else noOwner">
             <button
               class="btn btn-primary"
@@ -52,7 +54,7 @@
               class="btn btn-danger"
               (click)="onDeleteMesa(mesa.Id)"
             >
-              Eliminar
+              Eliminar Mesa
             </button>
           </td>
           <ng-template #noOwner>
@@ -65,7 +67,7 @@
           <ng-template #noOwner2>
             <td>
               <button class="btn btn-danger" disabled="true">
-                Eliminar
+                Eliminar Mesa
               </button>
             </td>
           </ng-template>

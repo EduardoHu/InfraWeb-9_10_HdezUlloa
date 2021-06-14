@@ -3,16 +3,16 @@ import { DataApiService } from '../../services/data-api.service';
 import {  MesasInterface } from '../../models/mesas';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { ListMesasComponent } from '../list-mesas/list-mesas.component';
+import { MesasComponent } from '../pages/mesas/mesas.component';
 import { AuthService } from '../../services/auth.service'
 @Component({
-  selector: 'app-modalmesas',
-  templateUrl: './modalmesas.component.html',
-  styleUrls: ['./modalmesas.component.css'],
+  selector: 'app-modalReserva',
+  templateUrl: './modalReserva.component.html',
+  styleUrls: ['./modalReserva.component.css'],
   providers: [AuthService]
 })
-export class ModalmesasComponent implements OnInit {
-  public hijo: ListMesasComponent;
+export class ModalReservaComponent implements OnInit {
+  public hijo: MesasComponent;
   constructor(public dataApi: DataApiService, public authService: AuthService) { }
   public userCorreo: string = null;
   @ViewChild('btnClose') btnClose: ElementRef;
@@ -30,14 +30,7 @@ export class ModalmesasComponent implements OnInit {
     })
   }
   onSaveMesa(mesaForm: NgForm): void {
-    if (mesaForm.value.Id == null) {
-      // New 
-      mesaForm.value.correo_registro = this.userCorreo;
-      this.dataApi.addMesas(mesaForm.value);
-    } else {
-      // Update
       this.dataApi.updateMesas(mesaForm.value);
-    }
     mesaForm.resetForm();
     this.btnClose.nativeElement.click();
   }

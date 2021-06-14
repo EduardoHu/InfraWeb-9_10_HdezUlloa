@@ -20,6 +20,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MesasComponent } from './components/pages/mesas/mesas.component';
 import { DetailMesasComponent } from './components/pages/detail-mesas/detail-mesas.component';
 import { ModalmesasComponent } from './components/modalmesas/modalmesas.component';
+import { ModalReservaComponent } from './components/modalReserva/modalReserva.component';
 import { ListMesasComponent } from './components/list-mesas/list-mesas.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
@@ -38,6 +39,7 @@ import { FilterListTPipe } from './pipes/filter-list-t.pipe';
     MesasComponent,
     DetailMesasComponent,
     ModalmesasComponent,
+    ModalReservaComponent,
     ListMesasComponent,
     FilterPipe,
     FilterListPipe,

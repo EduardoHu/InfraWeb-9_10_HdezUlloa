@@ -15,8 +15,9 @@ export class FilterListTPipe implements PipeTransform {
         // && post.lugar.toLowerCase().indexOf(args[1].toLowerCase()) > -1
         // && post.luz.toLowerCase().indexOf(args[2].toLowerCase()) > -1
         // && post.agua.toLowerCase().indexOf(args[3].toLowerCase()) > -1
-        && post.personas <= args[4]
-        && post.reservada != 'Si'
+        && post.personasMax <= args[4]
+        // && post.reservadaPor.toLowerCase().indexOf(args[0].toLowerCase()) > -1
+        // && post.reservada != "No"
       ) {
 
         resultPost.push(post);
