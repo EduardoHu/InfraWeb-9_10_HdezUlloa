@@ -1,0 +1,144 @@
+<div class="jumbotron text-center">
+  <h1>Mesas</h1>
+  <p class="eslogan">
+    Te ofrecemos un servicio selecto, el cual podras acceder al reservar con nosotros
+  </p>
+</div>
+<h4 class="text-center">Filtrar Mesas</h4>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputState" class="col-form-label">Estandar o VIP</label>
+      <select
+        id="inputState"
+        class="form-control"
+        name="calidad"
+        [(ngModel)]="calidad"
+      >
+        <option value="estandar">Estandar</option>
+        <option value="vip">Vip</option>
+        <option value="">Todas</option>
+      </select>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-3 pt-0">Personas:</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="personas"
+              [(ngModel)]="personas"
+              id="gridRadios1"
+              value="2"
+              checked
+            />
+            <label class="form-check-label" for="gridRadios1">
+              Hasta 2 personas
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="personas"
+              [(ngModel)]="personas"
+              id="gridRadios2"
+              value="4"
+            />
+            <label class="form-check-label" for="gridRadios2">
+              Hasta 4 personas
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="personas"
+              [(ngModel)]="personas"
+              id="gridRadios3"
+              value="8"
+            />
+            <label class="form-check-label" for="gridRadios3">
+              Hasta 8 personas
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="personas"
+              [(ngModel)]="personas"
+              id="gridRadios2"
+              value="10"
+            />
+            <label class="form-check-label" for="gridRadios2">
+              Hasta 10 personas
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</form>
+
+<section id="mesas" class="mt-4">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-xs-12 col-sm-6 col-md-4"
+        *ngFor="
+          let mesa of mesas | filterListT: calidad:personas
+        "
+      >
+        <div class="card_book">
+          <div class="card text-black bg-light">
+            <img
+              class="card-img-top"
+              src="{{ mesa.imagen_presentacion }}"
+              alt="{{ mesa.codigo }}"
+            />
+            <div class="card-img-overlay">
+              <p class="badge badge-warning">
+                {{ mesa.codigo }}
+              </p>
+            </div>
+            <p class="badge badge-warning">
+              Calidad: <strong>{{ mesa.calidad }}</strong>
+            </p>
+            <div class="card-body text-center">
+              <h4 class="card-title">
+                Mesa para {{mesa.personasMax}}
+              </h4>
+              <p class="card-text">
+                {{ mesa.descripcion }}
+              </p>
+              <h4 class="card-text">{{ mesa.precio | currency }}</h4>
+              <a
+                href=""
+                class="btn btn-block btn-warning"
+                target="_self"
+                routerLink="/mesa/{{ mesa.Id }}"
+                >Reservar</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="card text-center">
+  <div class="card-header">
+    FiFood
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">¿No encontraste lo que buscabas?</h5>
+    <p class="card-text">
+      Tenemos mas opciones para ti, solo comunicate y nosotros
+      hacemos el resto.
+    </p>
+    <a href="#" class="btn btn-dark" routerLink="/contacto">Agendar cita</a>
+  </div>
+</div>
