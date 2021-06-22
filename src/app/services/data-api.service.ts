@@ -66,8 +66,10 @@ export class DataApiService {
   updateMesas(mesa: MesasInterface): void {
     let idMesa = mesa.Id;
     this.mesaDoc = this.afs.doc<MesasInterface>(`mesas/${idMesa}`);
-    mesa.reservada="No";
-    mesa.reservadaPor="";
+    mesa.reservada="Si";
+    if(mesa.reservadaPor==""){
+      mesa.reservada="No";
+    }
     this.mesaDoc.update(mesa);
   }
   updateMesas2(mesa: MesasInterface,Id:string): void {

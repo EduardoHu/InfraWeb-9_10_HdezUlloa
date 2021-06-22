@@ -4,85 +4,6 @@
     Te ofrecemos un servicio selecto, el cual podras acceder al reservar con nosotros
   </p>
 </div>
-<h4 class="text-center">Filtrar Mesas</h4>
-<form>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputState" class="col-form-label">Estandar o VIP</label>
-      <select
-        id="inputState"
-        class="form-control"
-        name="calidad"
-        [(ngModel)]="calidad"
-      >
-        <option value="estandar">Estandar</option>
-        <option value="vip">Vip</option>
-        <option value="">Todas</option>
-      </select>
-    </div>
-    <fieldset class="form-group">
-      <div class="row">
-        <legend class="col-form-label col-sm-3 pt-0">Personas:</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="personasMax"
-              [(ngModel)]="personasMax"
-              id="gridRadios1"
-              value="2"
-              checked
-            />
-            <label class="form-check-label" for="gridRadios1">
-              Hasta 2 personas
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="personasMax"
-              [(ngModel)]="personasMax"
-              id="gridRadios2"
-              value="4"
-            />
-            <label class="form-check-label" for="gridRadios2">
-              Hasta 4 personas
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="personasMax"
-              [(ngModel)]="personasMax"
-              id="gridRadios3"
-              value="8"
-            />
-            <label class="form-check-label" for="gridRadios3">
-              Hasta 8 personas
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="personasMax"
-              [(ngModel)]="personasMax"
-              id="gridRadios2"
-              value="10"
-            />
-            <label class="form-check-label" for="gridRadios2">
-              Hasta 10 personas
-            </label>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</form>
-
 <section id="mesas" class="mt-4">
   <div class="container">
     <div class="row">
@@ -115,9 +36,7 @@
                 {{ mesa.descripcion }}
               </p>
               <button
-              data-toggle="modal"
-              data-target="#modalReserva"
-              (click)="onPreUpdateMesa(mesa)"
+              [routerLink]="['/contacto']"
               class="btn btn-success">
                 Reservar
               </button>
