@@ -4,7 +4,6 @@ import { LoginComponent } from './components/forms/login/login.component';
 import { MainComponent } from './components/pages/main/main.component';
 import { ClientRegisterComponent } from './components/forms/client-register/client-register.component';
 import { MesasComponent } from './components/pages/mesas/mesas.component';
-import { DetailMesasComponent } from './components/pages/detail-mesas/detail-mesas.component';
 import { ListMesasComponent } from './components/list-mesas/list-mesas.component';
 import { ContactoComponent } from './components/pages/contacto/contacto.component';
 const routes: Routes = [
@@ -31,10 +30,6 @@ const routes: Routes = [
   {
     path: 'mesas',
     component: MesasComponent
-  },
-  {
-    path: 'mesa/:idMesa',
-    component: DetailMesasComponent
   },
   {
     path: '**',

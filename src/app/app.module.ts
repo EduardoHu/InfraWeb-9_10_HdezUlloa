@@ -18,9 +18,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MesasComponent } from './components/pages/mesas/mesas.component';
-import { DetailMesasComponent } from './components/pages/detail-mesas/detail-mesas.component';
 import { ModalmesasComponent } from './components/modalmesas/modalmesas.component';
-import { ModalReservaComponent } from './components/modalReserva/modalReserva.component';
 import { ListMesasComponent } from './components/list-mesas/list-mesas.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
@@ -38,9 +36,7 @@ import { ContactoComponent } from './components/pages/contacto/contacto.componen
     ClientRegisterComponent,
     Page404Component,
     MesasComponent,
-    DetailMesasComponent,
     ModalmesasComponent,
-    ModalReservaComponent,
     ListMesasComponent,
     FilterPipe,
     FilterListPipe,
